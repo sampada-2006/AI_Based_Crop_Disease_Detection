@@ -140,7 +140,10 @@ This project is evaluated primarily on Human-Computer Interaction fundamentals, 
 
 _(Add your names and roles here)_
 
-- Your Name — Frontend Architecture & UI/UX
+- Sampada - Frontend Architecture & UI/UX
+- Pratham - Backend
+- Krishna - ML
+- Krish - Deployment and bugs
 - Teammate Name — _(role)_
 
 ---
