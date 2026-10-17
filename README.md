@@ -144,7 +144,6 @@ _(Add your names and roles here)_
 - Pratham - Backend
 - Krishna - ML
 - Krish - Deployment and bugs
-- Teammate Name — _(role)_
 
 ---
 
