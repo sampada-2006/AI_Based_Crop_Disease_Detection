@@ -1,6 +1,10 @@
-import React from "react";
-import DesktopLayout from "./components/DesktopLayout";
+import { AppProvider } from "./context/AppContext";
+import AppShell from "./components/layout/AppShell";
 
 export default function App() {
-  return <DesktopLayout />;
+  return (
+    <AppProvider>
+      <AppShell />
+    </AppProvider>
+  );
 }

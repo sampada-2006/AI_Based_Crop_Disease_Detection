@@ -1,5 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import "@fontsource/noto-sans-devanagari/400.css";
+import "@fontsource/noto-sans-devanagari/500.css";
+import "@fontsource/noto-sans-devanagari/600.css";
+import "@fontsource/noto-sans-devanagari/700.css";
 import "./index.css";
 import "./i18n.js"; // Added i18n setup
 import App from "./App.jsx";

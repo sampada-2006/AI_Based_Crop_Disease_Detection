@@ -1,0 +1,68 @@
+export const SEED_HISTORY = [
+  {
+    id: "hist-1",
+    scannedAt: "2026-10-14T10:24:00",
+    cropId: "tomato",
+    diseaseId: "earlyBlight",
+    confidence: 94,
+    affectedAreaPercent: 11,
+  },
+  {
+    id: "hist-2",
+    scannedAt: "2026-10-12T16:12:00",
+    cropId: "tomato",
+    diseaseId: "leafMiner",
+    confidence: 87,
+    affectedAreaPercent: 14,
+  },
+  {
+    id: "hist-3",
+    scannedAt: "2026-10-10T11:03:00",
+    cropId: "tomato",
+    diseaseId: "bacterialSpot",
+    confidence: 68,
+    affectedAreaPercent: 22,
+  },
+  {
+    id: "hist-4",
+    scannedAt: "2026-10-08T09:27:00",
+    cropId: "tomato",
+    diseaseId: "healthy",
+    confidence: 96,
+    affectedAreaPercent: 0,
+  },
+  {
+    id: "hist-5",
+    scannedAt: "2026-10-06T17:40:00",
+    cropId: "tomato",
+    diseaseId: "earlyBlight",
+    confidence: 68,
+    affectedAreaPercent: 24,
+  },
+  {
+    id: "hist-6",
+    scannedAt: "2026-10-04T08:15:00",
+    cropId: "chilli",
+    diseaseId: "leafCurl",
+    confidence: 82,
+    affectedAreaPercent: 19,
+  },
+  {
+    id: "hist-7",
+    scannedAt: "2026-10-02T15:30:00",
+    cropId: "chilli",
+    diseaseId: "bacterialSpot",
+    confidence: 74,
+    affectedAreaPercent: 16,
+  },
+  {
+    id: "hist-8",
+    scannedAt: "2026-09-30T10:10:00",
+    cropId: "cucumber",
+    diseaseId: "powderyMildew",
+    confidence: 71,
+    affectedAreaPercent: 21,
+  },
+];
+
+export default SEED_HISTORY;
