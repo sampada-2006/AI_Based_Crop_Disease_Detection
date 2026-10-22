@@ -133,6 +133,15 @@ export default function HistoryPage() {
                 <img
                   src={leafSrc}
                   alt={title}
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = getLeafImage({
+                      diseaseId: entry.diseaseId,
+                      affectedAreaPercent: entry.affectedAreaPercent,
+                      cropId: entry.cropId,
+                      entryId: entry.id,
+                    });
+                  }}
                   className="w-14 h-14 rounded-xl object-cover shrink-0 border border-border/80 bg-slate-50"
                 />
                 <div className="min-w-0">

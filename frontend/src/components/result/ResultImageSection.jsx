@@ -17,6 +17,13 @@ export default function ResultImageSection({ diseaseId, affectedAreaPercent, raw
         <img
           src={originalSrc}
           alt="Analysis Result Leaf"
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = getLeafImage({
+              diseaseId,
+              affectedAreaPercent: affectedAreaPercent || 0,
+            });
+          }}
           className="w-full max-h-[420px] object-cover"
         />
 
@@ -55,6 +62,13 @@ export default function ResultImageSection({ diseaseId, affectedAreaPercent, raw
           <img
             src={originalSrc}
             alt="Original Thumbnail"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = getLeafImage({
+                diseaseId,
+                affectedAreaPercent: affectedAreaPercent || 0,
+              });
+            }}
             className="w-12 h-12 object-cover rounded-lg border border-border shrink-0"
           />
           <div className="min-w-0">

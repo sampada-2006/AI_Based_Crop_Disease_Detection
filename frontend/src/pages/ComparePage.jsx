@@ -130,6 +130,15 @@ export default function ComparePage() {
             <img
               src={prevImg}
               alt={t("compare.previous")}
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = getLeafImage({
+                  diseaseId: previous.diseaseId,
+                  affectedAreaPercent: previous.affectedAreaPercent,
+                  cropId: previous.cropId,
+                  entryId: previous.id,
+                });
+              }}
               className="w-full h-full object-cover"
             />
           </div>
@@ -159,6 +168,15 @@ export default function ComparePage() {
             <img
               src={currImg}
               alt={t("compare.current")}
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = getLeafImage({
+                  diseaseId: current.diseaseId,
+                  affectedAreaPercent: current.affectedAreaPercent,
+                  cropId: current.cropId,
+                  entryId: current.entryId || current.id,
+                });
+              }}
               className="w-full h-full object-cover"
             />
           </div>

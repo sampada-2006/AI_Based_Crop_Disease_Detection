@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Camera, FolderOpen, CheckCircle2, AlertTriangle, RefreshCw } from "lucide-react";
 import { useApp } from "../../context/AppContext";
@@ -19,20 +19,6 @@ export default function DropzoneCard() {
 
   const cameraInputRef = useRef(null);
   const fileInputRef = useRef(null);
-  const createdBlobUrlRef = useRef(null);
-
-  const revokeCurrentBlob = () => {
-    if (createdBlobUrlRef.current && createdBlobUrlRef.current.startsWith("blob:")) {
-      URL.revokeObjectURL(createdBlobUrlRef.current);
-      createdBlobUrlRef.current = null;
-    }
-  };
-
-  useEffect(() => {
-    return () => {
-      revokeCurrentBlob();
-    };
-  }, []);
 
   const validateAndProcessFile = (file) => {
     setErrorMessage(null);
@@ -49,12 +35,19 @@ export default function DropzoneCard() {
       return;
     }
 
-    revokeCurrentBlob();
-    const imageUrl = URL.createObjectURL(file);
-    createdBlobUrlRef.current = imageUrl;
-    setSelectedImage(imageUrl);
-    setIsBlurry(false);
-    setPendingScenario(null); // Uploaded custom file uses sampleHigh by default
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const dataUrl = e.target?.result;
+      if (dataUrl) {
+        setSelectedImage(dataUrl);
+        setIsBlurry(false);
+        setPendingScenario(null); // Uploaded custom file uses sampleHigh by default
+      }
+    };
+    reader.onerror = () => {
+      setErrorMessage("Failed to read image file. Please try again.");
+    };
+    reader.readAsDataURL(file);
   };
 
   const handleFileChange = (e) => {
@@ -80,7 +73,6 @@ export default function DropzoneCard() {
   };
 
   const handleChangePhoto = () => {
-    revokeCurrentBlob();
     setSelectedImage(null);
     setIsBlurry(false);
     setErrorMessage(null);
